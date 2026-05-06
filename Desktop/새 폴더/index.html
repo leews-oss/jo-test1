@@ -9,9 +9,11 @@
       margin: 0;
       font-family: Arial, sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 40px 0;
       background: linear-gradient(135deg, #4facfe, #00f2fe);
       color: #333;
     }
@@ -44,6 +46,36 @@
       font-size: 18px;
       font-weight: bold;
       line-height: 1.8;
+    }
+    .contact-section {
+      margin-top: 40px;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+    .contact-section h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    .contact-section input,
+    .contact-section textarea {
+      width: 100%;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    .contact-section textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    .contact-section button {
+      width: 100%;
     }
   </style>
 </head>
@@ -80,6 +112,18 @@
     document.getElementById("result").innerText = resultText;
   }
 </script>
+
+
+<div class="contact-section">
+  <h2>📩 제휴 문의</h2>
+  <form action="https://formspree.io/f/xpqbrboo" method="POST">
+    <input type="text" name="name" placeholder="이름" required>
+    <input type="email" name="email" placeholder="이메일" required>
+    <input type="text" name="company" placeholder="회사명">
+    <textarea name="message" placeholder="문의 내용을 입력해주세요" required></textarea>
+    <button type="submit">문의 보내기</button>
+  </form>
+</div>
 
 </body>
 </html>
