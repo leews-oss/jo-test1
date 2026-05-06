@@ -87,33 +87,6 @@
   <div class="numbers" id="result">버튼을 눌러주세요</div>
 </div>
 
-<script>
-  function getOneSet() {
-    let numbers = [];
-
-    while (numbers.length < 6) {
-      let num = Math.floor(Math.random() * 45) + 1;
-      if (!numbers.includes(num)) {
-        numbers.push(num);
-      }
-    }
-
-    return numbers.sort((a, b) => a - b);
-  }
-
-  function generateLotto() {
-    let resultText = "";
-
-    for (let i = 1; i <= 5; i++) {
-      let set = getOneSet();
-      resultText += i + "세트: " + set.join("  ") + "\n";
-    }
-
-    document.getElementById("result").innerText = resultText;
-  }
-</script>
-
-
 <div class="contact-section">
   <h2>📩 제휴 문의</h2>
   <form action="https://formspree.io/f/xpqbrboo" method="POST">
@@ -124,6 +97,26 @@
     <button type="submit">문의 보내기</button>
   </form>
 </div>
+
+<script>
+  function getOneSet() {
+    let numbers = [];
+    while (numbers.length < 6) {
+      let num = Math.floor(Math.random() * 45) + 1;
+      if (!numbers.includes(num)) numbers.push(num);
+    }
+    return numbers.sort((a, b) => a - b);
+  }
+
+  function generateLotto() {
+    let resultText = "";
+    for (let i = 1; i <= 5; i++) {
+      let set = getOneSet();
+      resultText += i + "세트: " + set.join("  ") + "\n";
+    }
+    document.getElementById("result").innerText = resultText;
+  }
+</script>
 
 </body>
 </html>
