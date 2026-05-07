@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-adsense-account" content="ca-pub-2825839596999528">
+  <title>로또 번호 추천기</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2825839596999528" crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 0;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #333;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .numbers {
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+    .contact-section {
+      margin-top: 40px;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+    .contact-section h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    .contact-section input,
+    .contact-section textarea {
+      width: 100%;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    .contact-section textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    .contact-section button {
+      width: 100%;
+    }
+    .ad-wrap {
+      width: 350px;
+      margin-top: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎲 로또 번호 추천</h1>
+  <button onclick="generateLotto()">번호 뽑기</button>
+  <div class="numbers" id="result">버튼을 눌러주세요</div>
+</div>
+
+<div class="ad-wrap">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-2825839596999528"
+       data-ad-slot="auto"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="contact-section">
+  <h2>📩 제휴 문의</h2>
+  <form action="https://formspree.io/f/xpqbrboo" method="POST">
+    <input type="text" name="name" placeholder="이름" required>
+    <input type="email" name="email" placeholder="이메일" required>
+    <input type="text" name="company" placeholder="회사명">
+    <textarea name="message" placeholder="문의 내용을 입력해주세요" required></textarea>
+    <button type="submit">문의 보내기</button>
+  </form>
+</div>
+
+<script>
+  function getOneSet() {
+    let numbers = [];
+    while (numbers.length < 6) {
+      let num = Math.floor(Math.random() * 45) + 1;
+      if (!numbers.includes(num)) numbers.push(num);
+    }
+    return numbers.sort((a, b) => a - b);
+  }
+
+  function generateLotto() {
+    let resultText = "";
+    for (let i = 1; i <= 5; i++) {
+      let set = getOneSet();
+      resultText += i + "세트: " + set.join("  ") + "\n";
+    }
+    document.getElementById("result").innerText = resultText;
+  }
+</script>
+
+</body>
+</html>
